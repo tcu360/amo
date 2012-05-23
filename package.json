@@ -1,0 +1,17 @@
+{
+  "name": "amo",
+  "subdomain": "amo",
+  "scripts": {
+    "start": "app.js"
+  },
+  "version": "0.0.0-4",
+  "engines": {
+    "node": "0.6.x"
+  },
+  "dependencies": {
+    "request": "2.9.x",
+    "node-uuid": "1.3.x",
+    "jsdom": "0.2.x",
+    "xml-simple": "0.0.x"
+  }
+}
