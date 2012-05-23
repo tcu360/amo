@@ -1,5 +1,7 @@
 ## Amo ##
 
+super simple service to provide you with the current share count of a given url in the socialsphere. Currently includes only Google Plus, Facebook and Twitter.
+
 ###[Try it on nodejitsu][1]
 
  1. **Clone:** git clone git://github.com/openNews/amo.git
