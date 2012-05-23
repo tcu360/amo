@@ -1,6 +1,6 @@
 ## Amo ##
 
- 1. **Clone: ** git clone git://github.com/openNews/amo.git
+ 1. **Clone:** git clone git://github.com/openNews/amo.git
  2. **Install dependencies:** npm install
  3. **Start server:** node app
  4. **Query the service:** localhost/?q=http://www.linkyouwanttofind.com
