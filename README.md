@@ -1,6 +1,6 @@
 ## Amo ##
 
-super simple service to provide you with the current share count of a given url in the socialsphere. Currently includes only Google Plus, Facebook and Twitter.
+Amo is a simple service to provide you with the up to date share count of a given url in the socialsphere. Currently includes only Google Plus, Facebook and Twitter.
 
 ###[Try it on nodejitsu][1]
 
