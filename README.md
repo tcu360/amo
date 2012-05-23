@@ -1,4 +1,5 @@
-amo
-===
+## Amo ##
 
-> a simple tool for grabbing the current shares of urls across the social mediashpere.
+ 1. **Install dependencies: :** npm install
+ 2. **Start server:** node app
+ 3. **Query the service:** localhost/?q=http://www.linkyouwanttofind.com
