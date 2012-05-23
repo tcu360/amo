@@ -44,10 +44,6 @@ http.createServer(function (req, res) {
 
     };
 
-    getFacebookComments = function(){
-
-    };
-
     getTwitterShares = function(url, shareObj){
 
       request('http://urls.api.twitter.com/1/urls/count.json?url='+url, function (err, res, body){
