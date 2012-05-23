@@ -1,3 +1,6 @@
+//
+// to get started npm install
+//
 var request = require('request'), 
     http = require('http'),
     simplexml = require('xml-simple'),
