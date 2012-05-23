@@ -4,7 +4,7 @@
  2. **Navigate to repo:** cd amo
  3. **Install dependencies:** npm install
  4. **Start server:** node app
- 5. **Query the service:** localhost/?q=http://www.linkyouwanttofind.com
+ 5. **Q the service:** localhost:1337/?q=http://www.example.com
  6. [Try it on nodejitsu][1]
 
 
