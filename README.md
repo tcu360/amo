@@ -1,4 +1,3 @@
-[Try it on nodejitsu][1]
 ## Amo ##
 
 ###[Try it on nodejitsu][1]
