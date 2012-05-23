@@ -1,4 +1,4 @@
 amo
 ===
 
-amo.nodejitsu.com/?q=http://www.facebook.com
+a simple tool for grabbing the current shares of urls across the social mediashpere.
