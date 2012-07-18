@@ -51,7 +51,7 @@ http.createServer(function (req, res) {
               likes : Number(parsed.link_stat.like_count)
             };
             shareObj.facebook = fbShares;
-            console.log(JSON.stringify(shareObj));
+            shareObj.total = shareObj.googlePlus.count + shareObj.twitter.count + shareObj.facebook.shares + shareObj.facebook.likes;
             res.end(JSON.stringify(shareObj));
           }
         }); // end simplexml.parse
@@ -134,6 +134,6 @@ http.createServer(function (req, res) {
   }
 
 
-}).listen(1337, '127.0.0.1');
+}).listen(1337, '0.0.0.0');
 
 console.log('Server started...');
