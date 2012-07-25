@@ -42,13 +42,20 @@ http.createServer(function (req, res) {
     };
 
     getTwitterShares = function(url, shareObj){
-
+      console.log('GET Twitter share for http://urls.api.twitter.com/1/urls/count.json?url='+url)
       request('http://urls.api.twitter.com/1/urls/count.json?url='+url, function (err, res, body){
         if(!err && res.statusCode === 200){
+          if(body === 'twttr.receiveCount({"errors":[{"code":48,"message":"Unable to access URL counting services"}]})'){
+            getTwitterShares(url, shareObj)
+            return
+          }
+
+          console.log('RESPONSE = %o', body);
           var tweet = JSON.parse(body),
               tweetCount = {
                 count: tweet.count
               };
+          
           shareObj.twitter = tweetCount;
           getFacebookShares(url, shareObj);
         }
