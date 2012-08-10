@@ -20,7 +20,7 @@ http.createServer(function (req, res) {
       getGooglePlusOnes,
       shareObj,
       init;
-
+  
   if(query.q){
 
     getFacebookShares = function(url, shareObj){
@@ -30,10 +30,11 @@ http.createServer(function (req, res) {
           if(parsed !== undefined){
             var fbShares = {
               shares : Number(parsed.link_stat.share_count),
-              likes : Number(parsed.link_stat.like_count)
+              likes : Number(parsed.link_stat.like_count),
+              comments : Number(parsed.link_stat.comment_count)
             };
             shareObj.facebook = fbShares;
-            shareObj.total = shareObj.googlePlus.count + shareObj.twitter.count + shareObj.facebook.shares + shareObj.facebook.likes;
+            shareObj.total = shareObj.googlePlus.count + shareObj.twitter.count + shareObj.facebook.shares + shareObj.facebook.comments + shareObj.facebook.likes;
             res.end(JSON.stringify(shareObj));
           }
         }); // end simplexml.parse
@@ -123,6 +124,6 @@ http.createServer(function (req, res) {
   }
 
 
-}).listen(1337, '0.0.0.0');
+}).listen(1337, '127.0.0.1');
 
 console.log('Server started...');
