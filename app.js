@@ -8,7 +8,7 @@ var request = require('request'),
     url  = require('url'),
     http = require('http'),
     fs = require('fs'),
-    jquery = fs.readFileSync('./jquery.js').toString();;
+    jquery = fs.readFileSync('jquery.js').toString();;
 
 
 http.createServer(function (req, res) {
@@ -36,6 +36,7 @@ http.createServer(function (req, res) {
               comments : Number(parsed.link_stat.comment_count)
             };
             shareObj.facebook = fbShares;
+            console.log('Facebook Shares', fbShares)
             shareObj.total = shareObj.googlePlus.count + shareObj.twitter.count + shareObj.facebook.shares + shareObj.facebook.comments + shareObj.facebook.likes;
             res.end(JSON.stringify(shareObj));
           }
@@ -45,7 +46,6 @@ http.createServer(function (req, res) {
     };
 
     getTwitterShares = function(url, shareObj){
-      console.log('GET Twitter share for http://urls.api.twitter.com/1/urls/count.json?url='+url)
       request('http://urls.api.twitter.com/1/urls/count.json?url='+url, function (err, res, body){
         if(!err && res.statusCode === 200){
           if(body === 'twttr.receiveCount({"errors":[{"code":48,"message":"Unable to access URL counting services"}]})'){
@@ -53,7 +53,7 @@ http.createServer(function (req, res) {
             return
           }
 
-          console.log('RESPONSE = %o', body);
+          console.log('Twitter shares', body);
           var tweet = JSON.parse(body),
               tweetCount = {
                 count: tweet.count
@@ -67,7 +67,7 @@ http.createServer(function (req, res) {
     }; // end getTwitterShares()
 
     getGooglePlusOnes = function(url, shareObj){
-      console.log(jquery)
+      
       var gPlusOneId = function () {
             return ["I1_", (new Date()).getTime()].join("");
           },
