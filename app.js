@@ -6,7 +6,9 @@ var request = require('request'),
     crypto = require('crypto'),
     request = require('request'),
     url  = require('url'),
-    http = require('http');
+    http = require('http'),
+    fs = require('fs'),
+    jquery = fs.readFileSync('./jquery.js').toString();;
 
 
 http.createServer(function (req, res) {
@@ -65,7 +67,7 @@ http.createServer(function (req, res) {
     }; // end getTwitterShares()
 
     getGooglePlusOnes = function(url, shareObj){
-
+      console.log(jquery)
       var gPlusOneId = function () {
             return ["I1_", (new Date()).getTime()].join("");
           },
@@ -93,9 +95,7 @@ http.createServer(function (req, res) {
 
       jsdom.env({
         html: gPlusOneUrl(),
-        scripts: [
-          'http://code.jquery.com/jquery-1.7.min.js'
-        ],
+        src: [jquery],
         done: function(errors, window) {
 
           var $ = window.$;
