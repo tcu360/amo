@@ -103,6 +103,7 @@ http.createServer(function (req, res) {
           plusOneCount.count = Number(count);
           shareObj.googlePlus = plusOneCount;
           getTwitterShares(url, shareObj);
+          window.close();
         }
       });
     }; // end getGooglePlusOnes
