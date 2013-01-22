@@ -97,12 +97,13 @@ http.createServer(function (req, res) {
         html: gPlusOneUrl(),
         src: [jquery],
         done: function(errors, window) {
-
+          if (errors) return;
           var $ = window.$;
           var count = $('#aggregateCount').text();
           plusOneCount.count = Number(count);
           shareObj.googlePlus = plusOneCount;
           getTwitterShares(url, shareObj);
+          window.close()
         }
       });
     }; // end getGooglePlusOnes
