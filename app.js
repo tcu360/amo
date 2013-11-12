@@ -2,7 +2,7 @@ var request = require('request'),
     http = require('http'),
     simplexml = require('xml-simple'),
     uuid = require('node-uuid'),
-    jsdom  = require('jsdom'),
+    cheerio = require('cheerio'),
     crypto = require('crypto'),
     request = require('request'),
     url  = require('url'),
@@ -109,17 +109,12 @@ http.createServer(function (req, res) {
           plusOneCount = {
             ccount: undefined
           };
-
-      jsdom.env({
-        html: gPlusOneUrl(),
-        src: [jquery],
-        done: function(errors, window) {
-          if (errors) return;
-          var $ = window.$;
+      request(gPlusOneUrl(), function (error, response, html) {
+        if (!error && response.statusCode == 200) {
+          $ = cheerio.load(html);
           var count = $('#aggregateCount').text();
           plusOneCount.count = Number(count);
           shareObj.googlePlus = plusOneCount;
-          window.close()
           getLinkedInShares(url, shareObj);
         }
       });
