@@ -10,6 +10,7 @@ var request = require('request'),
     fs = require('fs'),
     jquery = fs.readFileSync('jquery.js').toString();
 
+var port = process.env.PORT || 1337;
 
 http.createServer(function (req, res) {
 
@@ -141,6 +142,6 @@ http.createServer(function (req, res) {
   }
 
 
-}).listen(80, '0.0.0.0');
+}).listen(port, '0.0.0.0');
 
 console.log('Server started...');
