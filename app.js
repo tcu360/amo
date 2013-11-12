@@ -141,6 +141,6 @@ http.createServer(function (req, res) {
   }
 
 
-}).listen(1337, '0.0.0.0');
+}).listen(80, '0.0.0.0');
 
 console.log('Server started...');
