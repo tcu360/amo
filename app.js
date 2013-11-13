@@ -7,13 +7,12 @@ var request = require('request'),
     request = require('request'),
     url  = require('url'),
     http = require('http'),
-    fs = require('fs')
+    fs = require('fs');
 
 var port = process.env.PORT || 1337;
 
-http.createServer(function (req, res) {
 
-  res.writeHead(200, {'Content-Type': 'application/json'});
+http.createServer(function (req, res) {
 
   var url_parts = url.parse(req.url, true),
       query = url_parts.query,
@@ -25,6 +24,8 @@ http.createServer(function (req, res) {
       init;
   
   if(query.q){
+
+    res.writeHead(200, {'Content-Type': 'application/json'});
 
     getFacebookShares = function(url, shareObj){
 
@@ -132,6 +133,7 @@ http.createServer(function (req, res) {
     init();
 
   }else{
+    res.writeHead(400, {'Content-Type': 'application/json'});
     res.end('ERROR! Your request contains no query. Please provide a query like so the following: http://amo.jit.su/?q=http://www.linkToQuery.com');
   }
 
