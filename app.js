@@ -23,6 +23,8 @@ http.createServer(function (req, res) {
       getGooglePlusOnes,
       shareObj,
       init;
+
+  res.setHeader("Access-Control-Allow-Origin", "*");
   
   if(query.q){
 
