@@ -77,13 +77,11 @@ http.createServer(function (req, res) {
 
       getLinkedInShares = function(url, shareObj){
         request('http://www.linkedin.com/countserv/count/share?format=json&url='+url, function (err, res, body){
-          console.log(res);
           if(!err && res.statusCode === 200){
             console.log('LinkedIn shares', body);
             var linkedinCount = {
                   count: JSON.parse(body).count
-                };
-            
+                };            
             shareObj.linkedin = linkedinCount;
             getTwitterShares(url, shareObj);
           }
