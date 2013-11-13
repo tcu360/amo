@@ -7,8 +7,7 @@ var request = require('request'),
     request = require('request'),
     url  = require('url'),
     http = require('http'),
-    fs = require('fs'),
-    jquery = fs.readFileSync('jquery.js').toString();
+    fs = require('fs')
 
 var port = process.env.PORT || 1337;
 
