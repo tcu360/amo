@@ -62,12 +62,12 @@ http.createServer(function (req, res) {
               return
             }
 
-            console.log('Twitter shares', body);
             var tweet = JSON.parse(body),
                 tweetCount = {
                   count: tweet.count
                 };
             
+            console.log('Twitter shares', tweetCount);
             shareObj.twitter = tweetCount;
             getFacebookShares(url, shareObj);
           }
